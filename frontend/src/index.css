@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --bg: #121212;
+  --bg-alt: #1a1a1a;
+  --bg-card: #1e1e1e;
+  --bg-hover: #2a2a2a;
+
+  --text: #e4e4e4;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666;
+
+  --accent: #34d399;
+  --accent-light: rgba(52, 211, 153, 0.12);
+  --accent-dark: #059669;
+
+  --red: #f87171;
+  --red-light: rgba(248, 113, 113, 0.1);
+
+  --amber: #fbbf24;
+  --amber-light: rgba(251, 191, 36, 0.1);
+
+  --border: #2a2a2a;
+  --border-strong: #3a3a3a;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 15px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root { min-height: 100vh; }
+
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
