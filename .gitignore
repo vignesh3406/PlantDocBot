@@ -15,6 +15,7 @@ venv/
 # Environment variables (API keys)
 .env
 *.env
+backend/.env
 
 # Model weights (too large for GitHub)
 *.pth

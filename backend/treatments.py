@@ -77,3 +77,4 @@ def get_treatment(disease: str):
         "treatment": f"The model detected '{formatted_disease}'. Prune affected leaves, avoid overhead watering, and consider applying a broad-spectrum fungicide or pesticide.",
         "products": ["Broad-spectrum Fungicide", "Neem oil", "Insecticidal soap"]
     }
+

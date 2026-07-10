@@ -23,7 +23,7 @@ The backend acts as the bridge between the user interface and the machine learni
 ## Machine Learning & AI
 The core intelligence of the application resides here, using a hybrid approach of a specialized vision model and a Large Language Model.
 
-- **Deep Learning Framework:** PyTorch & Torchvision
+- **Deep Learning Framework:** PyTorch & TorchvisionJ
 - **Vision Architecture:** ResNet50 (Fine-tuned for plant disease classification)
 - **Image Processing:** Pillow (`PIL`)
 - **Generative AI Integration:** Google Generative AI (`google-generativeai` package) utilizing the Gemini API for dynamic, natural-language treatment and product recommendations.
