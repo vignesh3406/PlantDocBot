@@ -1,0 +1,36 @@
+# Render Blueprint — defines both services for one-click deploy
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  # ── Backend (FastAPI) ──
+  - type: web
+    name: plantdocbot-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    region: oregon
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false   # You'll enter this manually in the Render dashboard
+      - key: HF_MODEL_REPO
+        value: vignesh3406/plantdocbot-model   # Update with your actual HF repo
+      - key: FRONTEND_URL
+        sync: false   # Set this after frontend deploys (e.g., https://plantdocbot.onrender.com)
+
+  # ── Frontend (React + Vite) ──
+  - type: web
+    name: plantdocbot-ui
+    runtime: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    region: oregon
+    plan: free
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+    envVars:
+      - key: VITE_API_URL
+        sync: false   # Set to your backend URL (e.g., https://plantdocbot-api.onrender.com)

@@ -36,7 +36,7 @@ function App() {
     const fd = new FormData();
     fd.append('file', file);
     try {
-      const res = await axios.post('http://127.0.0.1:8000/predict', fd);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'}/predict`, fd);
       setResult(res.data);
     } catch {
       setError('Could not reach the backend. Make sure it is running on port 8000.');
