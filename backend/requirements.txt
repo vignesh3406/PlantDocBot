@@ -6,4 +6,4 @@ pillow
 python-dotenv
 google-generativeai
 tqdm
-huggingface_hub
+
