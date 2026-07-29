@@ -1,19 +1,26 @@
 import os
 import torch
+import urllib.request
 from torchvision import models
 
 # Local path to the model file
 MODEL_DIR = os.path.dirname(__file__)
 LOCAL_MODEL_PATH = os.path.join(MODEL_DIR, "plant_model.pth")
+MODEL_URL = "https://github.com/vignesh3406/PlantDocBot/releases/download/v1.0/plant_model.pth"
 
 
 def load_model():
     """Load the PyTorch ResNet50 model locally for plant disease classification."""
     if not os.path.exists(LOCAL_MODEL_PATH):
-        raise FileNotFoundError(
-            f"Model file not found at local path: '{LOCAL_MODEL_PATH}'. "
-            f"Please make sure 'plant_model.pth' is inside the 'backend/models/' folder."
-        )
+        print(f"[Model] Model not found locally. Downloading from {MODEL_URL} ...")
+        try:
+            urllib.request.urlretrieve(MODEL_URL, LOCAL_MODEL_PATH)
+            print("[Model] Download complete!")
+        except Exception as e:
+            raise FileNotFoundError(
+                f"Failed to download model from {MODEL_URL}. Error: {e}\n"
+                f"Please make sure 'plant_model.pth' is uploaded to the v1.0 GitHub Release."
+            )
 
     print(f"[Model] Loading local model from {LOCAL_MODEL_PATH}")
     checkpoint = torch.load(LOCAL_MODEL_PATH, map_location="cpu", weights_only=False)
