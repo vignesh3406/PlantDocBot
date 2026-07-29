@@ -1,4 +1,4 @@
-# How to Run the Application Step-by-Step
+   # How to Run the Application Step-by-Step
 
 This guide provides instructions on how to set up and run the PlantDocBot application locally.
 
